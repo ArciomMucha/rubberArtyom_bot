@@ -60,7 +60,7 @@ const server = http.createServer((req, res) => {
   res.end('Bot is running!');
 });
 
-bot.on('text', (ctx) => {
+bot.on('message', (ctx) => {
   ctx.reply(`Прости, Артём тебя не понимает... 🤖\nПоэтому соси хуй или пиши нормальные запросы!`, {
     reply_markup: {
       keyboard: [[{ text: 'Погода 🌤️' }, { text: 'Курс валют 💵' }], [{ text: 'Помощь' }]],
@@ -69,9 +69,9 @@ bot.on('text', (ctx) => {
   });
 });
 
-bot.launch();
-
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+bot.launch();
